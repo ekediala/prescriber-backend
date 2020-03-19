@@ -60,7 +60,7 @@ class PrescriptionController {
         await prescriptionModel.create(payload);
         return res
           .status(CREATED)
-          .json({ message: SUCCESSFUL_PRESCRIPTION_CREATE });
+          .json({ data: { message: SUCCESSFUL_PRESCRIPTION_CREATE }});
       } catch ({ message }) {
         return res.status(BAD_GATEWAY).json({ message });
       }
@@ -127,7 +127,7 @@ class PrescriptionController {
         }
 
         if (!prescription) {
-          return res.status(NOT_FOUND).json({ message:  PRESCRIPTION_NOT_FOUND});
+          return res.status(NOT_FOUND).json({ data: { message: PRESCRIPTION_NOT_FOUND } });
         }
         return res.json({data: {prescription, message: DELETE_SUCCESSFUL}});
       }
