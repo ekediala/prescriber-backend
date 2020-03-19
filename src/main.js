@@ -13,12 +13,12 @@ const { DEVELOPMENT, PRODUCTION, ENV } = NODE_ENVIRONS;
 const app = express();
 app.use(cors());
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "*");
-//   res.header("Access-Control-Allow-Headers", "*");
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+});
 
 app.use(express.json());
 app.use("/v1", router);
