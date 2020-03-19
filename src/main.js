@@ -28,7 +28,7 @@ app.use("/v1", router);
 
 app.get("/*", HomeController.invalid);
 
-app.listen(PORT, () => {
+app.listen(process.env.port || PORT, () => {
   ENV === DEVELOPMENT
     ? console.log(`${DEVELOPMENT} server running at port ${PORT}`)
     : console.log(`${PRODUCTION} server running at port ${PORT}`);
