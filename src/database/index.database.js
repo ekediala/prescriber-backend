@@ -6,12 +6,16 @@ const {
 
 const mongoose = require("mongoose");
 
-// const { TEST, DEVELOPMENT, ENV } = NODE_ENVIRONS;
-// const { MONGO_DEV_URL, MONGO_PROD_URL, MONGO_TEST_URL } = MONGO_CONFIG;
+const { TEST, DEVELOPMENT, ENV } = NODE_ENVIRONS;
+const { MONGO_DEV_URL, MONGO_PROD_URL, MONGO_TEST_URL } = MONGO_CONFIG;
 const { DATABASE_CONNECTED } = GENERIC_CONSOLE_MESSAGES;
 
 const databaseURL =
-  "mongodb+srv://prescryber_prod:prescryber@cluster0-6kzt2.mongodb.net/prescriber_prod?retryWrites=true&w=majority";
+  ENV === TEST
+    ? MONGO_TEST_URL
+    : ENV === DEVELOPMENT
+    ? MONGO_DEV_URL
+    : MONGO_PROD_URL;
 
 mongoose.connect(
   databaseURL,

@@ -125,7 +125,7 @@ exports.SCHEMA_NAMES = {
  * Secret key for creating jwt tokens
  * @constant
  */
-exports.JWT_SECRET = "...,'/;±§presCryBerWebApplication*&$#%32222111784899947746%#~";
+exports.JWT_SECRET = JWT_SECRET_KEY;
 
 /**
  * Default account type
@@ -196,7 +196,7 @@ exports.EMAIL_CONFIG = {
   port: 465,
   secure: true,
   auth: {
-    user: "laravelninja@gmail.com",
-    pass: "appEmailSender123"
+    user: EMAIL_ID,
+    pass: EMAIL_PASSWORD
   }
 };
