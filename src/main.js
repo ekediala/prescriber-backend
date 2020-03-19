@@ -28,10 +28,10 @@ app.use("/v1", router);
 
 app.get("/*", HomeController.invalid);
 
-app.listen(process.env.port || PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   ENV === DEVELOPMENT
     ? console.log(`${DEVELOPMENT} server running at port ${PORT}`)
-    : console.log(`${PRODUCTION} server running at port ${PORT}`);
+    : console.log(`${PRODUCTION} server running at port ${process.env.PORT}`);
 }); 
 
 module.exports = app;
