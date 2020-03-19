@@ -6,18 +6,21 @@ const { NODE_ENVIRONS, PORT } = require("./constants/index.constants");
 const HomeController = require("./controllers/home.controller");
 const express = require("express");
 const router = require("./routes");
-const cacheControl = require('express-cache-controller');
 const cors = require('cors');
 
 const { DEVELOPMENT, PRODUCTION, ENV } = NODE_ENVIRONS;
 
 const app = express();
 
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "*");
+//   res.header("Access-Control-Allow-Headers", "*");
+//   next();
+// });
+
 app.use(express.json());
-app.use(cacheControl());
-
 app.use(cors());
-
 app.use("/v1", router);
 
 app.get("/*", HomeController.invalid);
