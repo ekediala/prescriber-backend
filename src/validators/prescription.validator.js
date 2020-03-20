@@ -5,12 +5,12 @@ const Joi = require("@hapi/joi");
  * @constant
  */
 exports.prescriptionSchema = Joi.object({
-  interval: Joi.any().required(),
+  interval: Joi.number().required(),
   prescription: Joi.string().required(),
   unit: Joi.string()
     .allow("ml", "capsules", "tablets")
     .required(),
-  quantity: Joi.any().required(),
+  quantity: Joi.number().required(),
   furtherAdvice: Joi.string().required(),
   patientEmail: Joi.string()
     .email()

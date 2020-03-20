@@ -55,6 +55,7 @@ router.post(
   PRESCRIPTION,
   AuthorisationMiddleware.verifyToken,
   AuthorisationMiddleware.isPrescriber,
+  AuthorisationMiddleware.prescriptionValidator,
   PrescriptionController.create
 );
 
