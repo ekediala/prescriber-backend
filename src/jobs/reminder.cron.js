@@ -46,7 +46,6 @@ function remind(interval) {
       interval
     },
     (err, prescriptions) => {
-      // error, try 5 more times before exit
       if (err) console.log(err);
       // no reminders to be sent, exit
       if (!prescriptions.length) return;
