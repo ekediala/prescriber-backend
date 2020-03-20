@@ -39,6 +39,7 @@
     "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.4",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.5"

@@ -3,6 +3,7 @@ const { CRON_CONFIG, EMAIL_CONFIG } = require("../constants/index.constants");
 const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const prescriptionModel = require("../models/prescription.model");
+const moment = require('moment');
 
 const remindOnce = cron.schedule(
   "0 0 7 * * *",
@@ -39,14 +40,14 @@ const remindFour = cron.schedule(
 function remind(interval) {
   prescriptionModel.find(
     {
-      expectedDateEnd: { $gte: new Date() },
+      expectedDateEnd: { $gte: moment().subtract(1, 'day') },
       filled: false,
       verified: true,
       interval
     },
     (err, prescriptions) => {
       // error, try 5 more times before exit
-      if (err) counter >= 5 ? console.log(err) : remind(counter++);
+      if (err) console.log(err);
       // no reminders to be sent, exit
       if (!prescriptions.length) return;
       prescriptions.forEach(async prescription => {
