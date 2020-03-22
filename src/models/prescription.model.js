@@ -11,7 +11,7 @@ const prescriptionSchema = new Schema({
     required: true
   },
   interval: {
-    type: String,
+    type: Number,
     required: true
   },
   prescription: {
