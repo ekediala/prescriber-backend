@@ -42,7 +42,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.4",
     "node-cron": "^2.0.3",
-    "nodemailer": "^6.4.5"
+    "nodemailer": "^6.4.16"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.1.6"
